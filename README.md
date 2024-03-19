@@ -1,6 +1,6 @@
 # AirBnB clone
 
-![AirBnB](/hbnb_step2.png)
+![AirBnB](/air.png)
 
 <p>The goal of the project is to deploy on your server a simple copy of the AirBnB website.
 
@@ -15,4 +15,4 @@ After 4 months, you will have a complete web application composed by:</p>
 
 ## Data diagram
 
-![dataDiagram](/dataDiagram.jpg)
+![dataDiagram](/hbnb_step2.png)
