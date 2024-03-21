@@ -41,8 +41,9 @@ class DBStorage():
                 table = self.__session.query(v)
                 objects.update({(k + row.id): row for row in table})
         else:
-            table = self.__session.query(self.models[cls])
-            objects.update({(cls + '.' + row.id): row for row in table})
+            classname = cls.__name__
+            table = self.__session.query(cls)
+            objects.update({(classname + '.' + row.id): row for row in table})
         return objects
 
     def new(self, obj):
