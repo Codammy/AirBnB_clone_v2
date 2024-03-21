@@ -130,14 +130,13 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[args[0]]()
         for (k, v) in attr.items():
             if v.isdigit() and v[0] != '0':
-                new_instance.__dict__[k] = int(v)
+                v = int(v)
             elif '.' in v:
                 try:
-                    new_instance.__dict__[k] = float(v)
+                    v = float(v)
                 except Exception:
                     pass
-            else:
-                new_instance.__dict__[k] = v
+            new_instance.__dict__[k] = v
         storage.new(new_instance)
         storage.save()
         print(new_instance.id)
