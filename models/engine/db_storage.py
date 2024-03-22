@@ -31,7 +31,8 @@ class DBStorage():
                                       )
         # self.__session = sessionmaker(bind=engine)
         if (os.getenv('HBNB_ENV') == 'test'):
-            MetaData.drop_all(engine)
+            metadata = MetaData()
+            metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """query all on the current database session"""
