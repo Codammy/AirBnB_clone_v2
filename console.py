@@ -127,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
             trim = k.strip("'").strip('"')
             key, value = trim.split('=')
             attr[key] = value.strip('"').strip("'").replace('_', ' ')
-        new_instance = HBNBCommand.classes[args[0]]()
+        new_instance = {}
         for (k, v) in attr.items():
             if v.isdigit() and v[0] != '0':
                 v = int(v)
@@ -136,10 +136,11 @@ class HBNBCommand(cmd.Cmd):
                     v = float(v)
                 except Exception:
                     pass
-            new_instance.__dict__[k] = v
-        storage.new(new_instance)
+            new_instance.update({k: v})
+        obj = HBNBCommand.classes[args[0]](**new_instance)
+        storage.new(obj)
         storage.save()
-        print(new_instance.id)
+        print(obj.id)
 
     def help_create(self):
         """ Help information for the create method """
