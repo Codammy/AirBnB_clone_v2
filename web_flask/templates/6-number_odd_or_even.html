@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Learning Flask with jinja template</title>
+	</head>
+	<body>
+		<h1>
+			{% if n%2 == 1 -%}
+			Number: {{n}} is odd
+			{%- endif %}
+			{% if n%2 == 0 -%}
+			Number: {{n}} is even
+			{%- endif %}
+		</h1>
+	</body>
+</html>
