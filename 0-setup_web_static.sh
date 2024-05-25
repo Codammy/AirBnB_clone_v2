@@ -19,4 +19,4 @@ echo 'server {
 	}
 }
 ' > /etc/nginx/sites-available/default
-sudo service nginx restart;
+#sudo service nginx restart;
