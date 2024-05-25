@@ -19,4 +19,4 @@ chown -hR ubuntu:ubuntu /data
 #	}
 #}
 #' > /etc/nginx/sites-available/default;
-nginx -s reload;
+#nginx -s reload;
