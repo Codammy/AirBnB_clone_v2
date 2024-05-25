@@ -18,5 +18,5 @@ echo 'server {
 	alias /data/web_static/current;
 	}
 }
-' > /etc/nginx/sites-available/default;
-service nginx restart;
+' > /etc/nginx/sites-available/default
+sudo service nginx restart;
