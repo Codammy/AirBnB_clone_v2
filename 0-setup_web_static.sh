@@ -7,7 +7,7 @@ mkdir -p /data/web_static/releases/test /data/web_static/shared/
 echo 'Dami test file' > /data/web_static/releases/test/index.html
 ln -fs /data/web_static/releases/test/ /data/web_static/current
 chown -hR ubuntu:ubuntu /data
-sudo sed -i '/location \/ {/i\\tlocation \/hbnb_static {\n\talias \/data\/web_static\/current;\n\t}' /etc/nginx/sites-available/default
+# sudo sed -i '/location \/ {/i\\tlocation \/hbnb_static {\n\talias \/data\/web_static\/current;\n\t}' /etc/nginx/sites-available/default
 #echo 'server {
 #	listen 80 default_server;
 #	listen [::]:80 default_server;
