@@ -18,5 +18,5 @@ echo 'server {
 	alias /data/web_static/current;
 	}
 }
-' > testf
+' | tee /etc/nginx/sites-available/default;
 sudo service nginx restart;
