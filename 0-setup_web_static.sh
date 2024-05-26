@@ -8,6 +8,7 @@ echo 'Dami test file' > /data/web_static/releases/test/index.html
 ln -fs /data/web_static/releases/test/ /data/web_static/current
 chown -hR ubuntu:ubuntu /data
 echo 'server {
+	listen 80 default_server;
 	listen [::]:80 default_server;
 
 	root var/www/html;
@@ -17,6 +18,5 @@ echo 'server {
 	location /hbnb_static {
 	alias /data/web_static/current;
 	}
-}
-' | sudo tee /etc/nginx/sites-available/default;
+}' | sudo tee /etc/nginx/sites-available/default;
 sudo service nginx restart;
