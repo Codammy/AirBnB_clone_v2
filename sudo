@@ -1,1 +1,0 @@
-server {        listen [::]:80 default_server;        root var/www/html;        server_name _;        location /hbnb_static {        alias /data/web_static/current;        }} /var/t
