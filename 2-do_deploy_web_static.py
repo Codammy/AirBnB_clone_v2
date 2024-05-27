@@ -41,8 +41,10 @@ def do_deploy(archive_path):
         status = sudo('tar -xzf /tmp/{} -C {}/releases/{}'
                       .format(archive, fold, archive[:-4]))
     status = sudo('rm /tmp/{}'.format(archive))
-    status = sudo('mv {}/releases/{}/web_static/* {}/releases/{}/'
+    status = sudo('cp -r {}/releases/{}/web_static/* {}/releases/{}/'
                   .format(fold, archive[:-4], fold, archive[:-4]))
+    status = sudo('rm -rf {}/releases/{}/web_static/'
+                  .format(fold, archive[:-4]))
     with prefix('rm -rf {}/current'.format(fold)):
         status = sudo('ln -fs /data/web_static/releases/{} {}/current'
                       .format(archive[:-4], fold))
