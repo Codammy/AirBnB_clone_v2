@@ -19,4 +19,4 @@ def do_pack():
         path = local('tar -cvzf versions/{} web_static'.format(tarfile))
         if path.succeeded:
             return f"versions/{tarfile}"
-    return None 
+    return None
