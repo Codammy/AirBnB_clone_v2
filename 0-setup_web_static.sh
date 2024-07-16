@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 apt update
 apt install -y nginx
 mkdir -p /data/web_static/{releases/test,shared}/
