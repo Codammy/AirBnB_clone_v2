@@ -27,10 +27,11 @@ def do_deploy(archive_path):
 
     new_version_path = "{}/{}".format(
                      "/data/web_static/releases/",
-                     archive_path.strip("versions").strip(".tgz"))
+                     archive_path.strip("versions/").strip(".tgz"))
 
-    with prefix(f"mkdir -p {new_verion_path}"):
-        if run(f"tar -xf /tmp/{archive_path} -C {new_version_path}").failed:
+    with prefix(f"mkdir -p {new_version_path}"):
+        if run(f"tar -xf /tmp/{archive_path.strip('/versions')} \
+                 -C {new_version_path}").failed:
             return False
 
     if run(f"mv {new_version_path}/web_static/* {new_version_path}").failed:
@@ -42,13 +43,13 @@ def do_deploy(archive_path):
     if run(f"rm -rf /data/web_static/current").failed:
         return False
 
-    stat = run(f"ln -fs /data/web_static/current {new_version_path}")
+    stat = run(f"ln -fs {new_version_path} /data/web_static/current")
 
-    if stat.succeeded:
-        return True
-    return False
+    if stat.failed:
+        return False
+    return True
 
 
 def deploy():
     """make a full deployment by calling do_pack and do_deploy"""
-    return do_deploy(do_pack()).succeeded
+    return do_deploy(do_pack())
