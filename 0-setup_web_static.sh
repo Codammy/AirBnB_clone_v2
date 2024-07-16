@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# sets up web servers for the deployment of web_static
 apt update
 apt install -y nginx
 mkdir -p /data/web_static/{releases/test,shared}/
