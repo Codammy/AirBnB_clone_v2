@@ -12,7 +12,7 @@ def say_hello():
     return "Hello HBNB!"
 
 
-@app.route("hbnb", strict_slashes=False)
+@app.route("/hbnb", strict_slashes=False)
 def say_hbnb():
     return "HBNB"
 
